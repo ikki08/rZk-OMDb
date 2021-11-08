@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  rZk-OMDb
 //
-//  Created by イッキ on 08/11/21.
+//  Created by Rizki on 08/11/21.
 //  Copyright © 2021 Rizki Dwi Putra. All rights reserved.
 //
 
