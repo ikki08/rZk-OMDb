@@ -3,17 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		185295A0EEB88F857A4B923C /* Pods_rZk_OMDbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CF2A5EF1845FE8BA3C78134 /* Pods_rZk_OMDbTests.framework */; };
 		34F23AC327394E2000C45628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AC227394E2000C45628 /* AppDelegate.swift */; };
 		34F23AC527394E2000C45628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AC427394E2000C45628 /* SceneDelegate.swift */; };
-		34F23AC727394E2000C45628 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AC627394E2000C45628 /* ViewController.swift */; };
-		34F23ACA27394E2000C45628 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F23AC827394E2000C45628 /* Main.storyboard */; };
 		34F23ACC27394E2200C45628 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F23ACB27394E2200C45628 /* Assets.xcassets */; };
 		34F23ACF27394E2200C45628 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F23ACD27394E2200C45628 /* LaunchScreen.storyboard */; };
 		34F23ADA27394E2200C45628 /* rZk_OMDbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AD927394E2200C45628 /* rZk_OMDbTests.swift */; };
+		34F23AE52739537F00C45628 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AE42739537F00C45628 /* AppDIContainer.swift */; };
+		34F23AE92739548B00C45628 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AE72739548B00C45628 /* DashboardViewController.swift */; };
+		34F23AEA2739548B00C45628 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F23AE82739548B00C45628 /* DashboardViewController.xib */; };
+		34F23AEC2739575100C45628 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AEB2739575100C45628 /* DashboardViewModel.swift */; };
+		34F23AEF2739658300C45628 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AEE2739658300C45628 /* APIClient.swift */; };
+		34F23AF1273965A800C45628 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AF0273965A800C45628 /* APIRequest.swift */; };
+		34F23AF32739714000C45628 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AF22739714000C45628 /* SearchRequest.swift */; };
+		34F23AF627397FDF00C45628 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AF527397FDF00C45628 /* Video.swift */; };
+		34F23AF9273983D100C45628 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AF8273983D100C45628 /* SearchService.swift */; };
+		34F23AFC27398A3800C45628 /* UIViewController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AFB27398A3800C45628 /* UIViewController+Utilities.swift */; };
+		34F23AFF273992C200C45628 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AFD273992C200C45628 /* VideoCell.swift */; };
+		34F23B00273992C200C45628 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F23AFE273992C200C45628 /* VideoCell.xib */; };
+		51348A63EB2A85439DF8C6FA /* Pods_rZk_OMDb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA897DF719C65E1B91A45D7 /* Pods_rZk_OMDb.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +39,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		052C6BB17F268A6A25940818 /* Pods-rZk-OMDb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rZk-OMDb.release.xcconfig"; path = "Target Support Files/Pods-rZk-OMDb/Pods-rZk-OMDb.release.xcconfig"; sourceTree = "<group>"; };
+		1FA897DF719C65E1B91A45D7 /* Pods_rZk_OMDb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rZk_OMDb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F23ABF27394E2000C45628 /* rZk-OMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rZk-OMDb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F23AC227394E2000C45628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34F23AC427394E2000C45628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		34F23AC627394E2000C45628 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		34F23AC927394E2000C45628 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		34F23ACB27394E2200C45628 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34F23ACE27394E2200C45628 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34F23AD027394E2200C45628 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34F23AD527394E2200C45628 /* rZk-OMDbTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "rZk-OMDbTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F23AD927394E2200C45628 /* rZk_OMDbTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rZk_OMDbTests.swift; sourceTree = "<group>"; };
 		34F23ADB27394E2200C45628 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34F23AE42739537F00C45628 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		34F23AE72739548B00C45628 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		34F23AE82739548B00C45628 /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
+		34F23AEB2739575100C45628 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		34F23AEE2739658300C45628 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		34F23AF0273965A800C45628 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		34F23AF22739714000C45628 /* SearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
+		34F23AF527397FDF00C45628 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		34F23AF8273983D100C45628 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		34F23AFB27398A3800C45628 /* UIViewController+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utilities.swift"; sourceTree = "<group>"; };
+		34F23AFD273992C200C45628 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		34F23AFE273992C200C45628 /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
+		5D60C884B0CA843BC2654A92 /* Pods-rZk-OMDb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rZk-OMDb.debug.xcconfig"; path = "Target Support Files/Pods-rZk-OMDb/Pods-rZk-OMDb.debug.xcconfig"; sourceTree = "<group>"; };
+		5D8EA31FC118AB8731B0982E /* Pods-rZk-OMDbTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rZk-OMDbTests.debug.xcconfig"; path = "Target Support Files/Pods-rZk-OMDbTests/Pods-rZk-OMDbTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5ED39551C26B07CFDF0869F6 /* Pods-rZk-OMDbTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rZk-OMDbTests.release.xcconfig"; path = "Target Support Files/Pods-rZk-OMDbTests/Pods-rZk-OMDbTests.release.xcconfig"; sourceTree = "<group>"; };
+		7CF2A5EF1845FE8BA3C78134 /* Pods_rZk_OMDbTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rZk_OMDbTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51348A63EB2A85439DF8C6FA /* Pods_rZk_OMDb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +81,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185295A0EEB88F857A4B923C /* Pods_rZk_OMDbTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		217B4FBC847B9F5294ED9B67 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1FA897DF719C65E1B91A45D7 /* Pods_rZk_OMDb.framework */,
+				7CF2A5EF1845FE8BA3C78134 /* Pods_rZk_OMDbTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		34F23AB627394E2000C45628 = {
 			isa = PBXGroup;
 			children = (
 				34F23AC127394E2000C45628 /* rZk-OMDb */,
 				34F23AD827394E2200C45628 /* rZk-OMDbTests */,
 				34F23AC027394E2000C45628 /* Products */,
+				858E3223633FD6BCDF130305 /* Pods */,
+				217B4FBC847B9F5294ED9B67 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,10 +120,14 @@
 		34F23AC127394E2000C45628 /* rZk-OMDb */ = {
 			isa = PBXGroup;
 			children = (
+				34F23AFA273989FF00C45628 /* Extension */,
+				34F23AF427397E7300C45628 /* Model */,
+				34F23AED2739653100C45628 /* REST */,
+				34F23AE62739544800C45628 /* Screen */,
+				34F23AF7273983A200C45628 /* Services */,
 				34F23AC227394E2000C45628 /* AppDelegate.swift */,
 				34F23AC427394E2000C45628 /* SceneDelegate.swift */,
-				34F23AC627394E2000C45628 /* ViewController.swift */,
-				34F23AC827394E2000C45628 /* Main.storyboard */,
+				34F23AE42739537F00C45628 /* AppDIContainer.swift */,
 				34F23ACB27394E2200C45628 /* Assets.xcassets */,
 				34F23ACD27394E2200C45628 /* LaunchScreen.storyboard */,
 				34F23AD027394E2200C45628 /* Info.plist */,
@@ -99,6 +144,63 @@
 			path = "rZk-OMDbTests";
 			sourceTree = "<group>";
 		};
+		34F23AE62739544800C45628 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				34F23AE72739548B00C45628 /* DashboardViewController.swift */,
+				34F23AEB2739575100C45628 /* DashboardViewModel.swift */,
+				34F23AE82739548B00C45628 /* DashboardViewController.xib */,
+				34F23AFD273992C200C45628 /* VideoCell.swift */,
+				34F23AFE273992C200C45628 /* VideoCell.xib */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		34F23AED2739653100C45628 /* REST */ = {
+			isa = PBXGroup;
+			children = (
+				34F23AEE2739658300C45628 /* APIClient.swift */,
+				34F23AF0273965A800C45628 /* APIRequest.swift */,
+				34F23AF22739714000C45628 /* SearchRequest.swift */,
+			);
+			path = REST;
+			sourceTree = "<group>";
+		};
+		34F23AF427397E7300C45628 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				34F23AF527397FDF00C45628 /* Video.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		34F23AF7273983A200C45628 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				34F23AF8273983D100C45628 /* SearchService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		34F23AFA273989FF00C45628 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				34F23AFB27398A3800C45628 /* UIViewController+Utilities.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		858E3223633FD6BCDF130305 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5D60C884B0CA843BC2654A92 /* Pods-rZk-OMDb.debug.xcconfig */,
+				052C6BB17F268A6A25940818 /* Pods-rZk-OMDb.release.xcconfig */,
+				5D8EA31FC118AB8731B0982E /* Pods-rZk-OMDbTests.debug.xcconfig */,
+				5ED39551C26B07CFDF0869F6 /* Pods-rZk-OMDbTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +208,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34F23ADE27394E2200C45628 /* Build configuration list for PBXNativeTarget "rZk-OMDb" */;
 			buildPhases = (
+				28755A19007C3F83096C33CC /* [CP] Check Pods Manifest.lock */,
 				34F23ABB27394E2000C45628 /* Sources */,
 				34F23ABC27394E2000C45628 /* Frameworks */,
 				34F23ABD27394E2000C45628 /* Resources */,
+				F1150343DE79A1409111B32A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +227,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34F23AE127394E2200C45628 /* Build configuration list for PBXNativeTarget "rZk-OMDbTests" */;
 			buildPhases = (
+				501EC66F6456AF9FFE565B2C /* [CP] Check Pods Manifest.lock */,
 				34F23AD127394E2200C45628 /* Sources */,
 				34F23AD227394E2200C45628 /* Frameworks */,
 				34F23AD327394E2200C45628 /* Resources */,
@@ -181,8 +286,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F23ACF27394E2200C45628 /* LaunchScreen.storyboard in Resources */,
+				34F23B00273992C200C45628 /* VideoCell.xib in Resources */,
 				34F23ACC27394E2200C45628 /* Assets.xcassets in Resources */,
-				34F23ACA27394E2000C45628 /* Main.storyboard in Resources */,
+				34F23AEA2739548B00C45628 /* DashboardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,14 +301,87 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		28755A19007C3F83096C33CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-rZk-OMDb-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		501EC66F6456AF9FFE565B2C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-rZk-OMDbTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1150343DE79A1409111B32A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-rZk-OMDb/Pods-rZk-OMDb-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-rZk-OMDb/Pods-rZk-OMDb-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-rZk-OMDb/Pods-rZk-OMDb-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		34F23ABB27394E2000C45628 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34F23AC727394E2000C45628 /* ViewController.swift in Sources */,
+				34F23AE52739537F00C45628 /* AppDIContainer.swift in Sources */,
+				34F23AFC27398A3800C45628 /* UIViewController+Utilities.swift in Sources */,
+				34F23AF1273965A800C45628 /* APIRequest.swift in Sources */,
+				34F23AE92739548B00C45628 /* DashboardViewController.swift in Sources */,
+				34F23AEC2739575100C45628 /* DashboardViewModel.swift in Sources */,
+				34F23AFF273992C200C45628 /* VideoCell.swift in Sources */,
+				34F23AF627397FDF00C45628 /* Video.swift in Sources */,
 				34F23AC327394E2000C45628 /* AppDelegate.swift in Sources */,
+				34F23AF32739714000C45628 /* SearchRequest.swift in Sources */,
+				34F23AF9273983D100C45628 /* SearchService.swift in Sources */,
 				34F23AC527394E2000C45628 /* SceneDelegate.swift in Sources */,
+				34F23AEF2739658300C45628 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,14 +404,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		34F23AC827394E2000C45628 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				34F23AC927394E2000C45628 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		34F23ACD27394E2200C45628 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -360,6 +531,7 @@
 		};
 		34F23ADF27394E2200C45628 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D60C884B0CA843BC2654A92 /* Pods-rZk-OMDb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -372,12 +544,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rzk.omdb.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		34F23AE027394E2200C45628 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 052C6BB17F268A6A25940818 /* Pods-rZk-OMDb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -390,12 +563,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rzk.omdb.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		34F23AE227394E2200C45628 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D8EA31FC118AB8731B0982E /* Pods-rZk-OMDbTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -418,6 +592,7 @@
 		};
 		34F23AE327394E2200C45628 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5ED39551C26B07CFDF0869F6 /* Pods-rZk-OMDbTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
