@@ -17,6 +17,8 @@ class DashboardViewModel {
     weak var delegate: DashboardVMDelegate?
     private let searchService: SearchServiceProtocol
     private(set) var videoList: Array<Video>
+    let imageCache = NSCache<NSString, UIImage>()
+    let responseCache = NSCache<NSString, AnyObject>()
     
     init(service: SearchServiceProtocol) {
         self.searchService = service
@@ -25,6 +27,7 @@ class DashboardViewModel {
     
     func searchVideo(term: String) {
         searchService.searchVideo(term: term,
+                                  cache: responseCache,
                                   success: { [weak self] videos in
             guard let `self` = self else { return }
             self.videoList.removeAll()
@@ -34,5 +37,9 @@ class DashboardViewModel {
             guard let `self` = self else { return }
             self.delegate?.searchDidFail()
         })
+    }
+    
+    func clearVideoList() {
+        self.videoList.removeAll()
     }
 }

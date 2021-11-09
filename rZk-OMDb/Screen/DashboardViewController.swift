@@ -10,6 +10,7 @@ import UIKit
 
 class DashboardViewController: UIViewController {
     @IBOutlet weak var dataTableView: UITableView!
+    @IBOutlet weak var videoSearchBar: UISearchBar!
     
     private var viewModel: DashboardViewModel?
     
@@ -29,6 +30,7 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        videoSearchBar.delegate = self
         setupTableView()
         initialLoad()
     }
@@ -45,8 +47,23 @@ class DashboardViewController: UIViewController {
     }
     
     private func initialLoad() {
-        showLoading()
+        //showLoading()
         viewModel?.searchVideo(term: "test")
+    }
+    
+    private func search(with term: String) {
+        viewModel?.searchVideo(term: term)
+    }
+}
+
+extension DashboardViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            initialLoad()
+        } else {
+            viewModel?.clearVideoList()
+            dataTableView.reloadData()
+        }
     }
 }
 
@@ -64,7 +81,7 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
         
         if viewModel.videoList.count > 0 {
             let videoData = viewModel.videoList[indexPath.row]
-            cell.setup(with: videoData)
+            cell.setup(with: videoData, cache: viewModel.imageCache)
         }
         
         return cell

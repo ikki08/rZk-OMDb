@@ -10,17 +10,16 @@ import UIKit
 import SDWebImage
 
 extension UIImageView {
-    func setImage(urlString: String, completion: @escaping () -> Void) {
-        let imageCache = NSCache<NSString, UIImage>()
-        if let cachedImage = imageCache.object(forKey: urlString as NSString) {
-            completion()
+    func setImage(urlString: String, cache: NSCache<NSString, UIImage>, completion: @escaping () -> Void) {
+        if let cachedImage = cache.object(forKey: urlString as NSString) {
             self.image = cachedImage
+            completion()
         } else {
             self.sd_setImage(with: URL(string: urlString),
                              completed: { (image, _, _, _) -> Void in
-                                completion()
                                 guard let posterImage = image else { return }
-                                imageCache.setObject(posterImage, forKey: urlString as NSString)
+                                cache.setObject(posterImage, forKey: urlString as NSString)
+                                completion()
             })
         }
     }

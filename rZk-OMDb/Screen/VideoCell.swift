@@ -25,9 +25,9 @@ class VideoCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setup(with video: Video) {
+    func setup(with video: Video, cache: NSCache<NSString, UIImage>) {
         if video.posterUrl != "" {
-            posterImageView.setImage(urlString: video.posterUrl) { [weak self] in
+            posterImageView.setImage(urlString: video.posterUrl, cache: cache) { [weak self] in
                 guard let `self` = self else { return }
                 self.notAvailableLabel.isHidden = true
             }
