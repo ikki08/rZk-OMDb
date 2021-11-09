@@ -24,8 +24,8 @@
                             <constraint firstAttribute="width" constant="54" id="Hkt-JJ-DNY"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFM-w7-KWD">
-                        <rect key="frame" x="29" y="39.5" width="28.5" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFM-w7-KWD">
+                        <rect key="frame" x="43" y="50" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -59,8 +59,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="notAvailableLabel" destination="OFM-w7-KWD" id="60z-81-ntS"/>
                 <outlet property="posterImageView" destination="SUx-vW-6te" id="jmO-jN-UZ8"/>
+                <outlet property="posterStatusLabel" destination="OFM-w7-KWD" id="FWr-Zt-bTb"/>
                 <outlet property="titleLabel" destination="zeV-87-nG3" id="X81-A9-tNh"/>
                 <outlet property="yearLabel" destination="qEY-sz-BFN" id="tDe-qb-IKj"/>
             </connections>

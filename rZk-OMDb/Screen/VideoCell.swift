@@ -10,7 +10,7 @@ import UIKit
 
 class VideoCell: UITableViewCell {
     @IBOutlet weak var posterImageView: UIImageView!
-    @IBOutlet weak var notAvailableLabel: UILabel!
+    @IBOutlet weak var posterStatusLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     
@@ -26,18 +26,16 @@ class VideoCell: UITableViewCell {
     }
     
     func setup(with video: Video, cache: NSCache<NSString, UIImage>) {
-        posterImageView.backgroundColor = UIColor.lightGray
-        titleLabel.backgroundColor = UIColor.clear
-        yearLabel.backgroundColor = UIColor.clear
-        
+        posterImageView.image = nil
+        posterStatusLabel.isHidden = false
         if video.posterUrl != "" {
+            posterStatusLabel.text = "⟳" // text when still fetching the image
             posterImageView.setImage(urlString: video.posterUrl, cache: cache) { [weak self] in
                 guard let `self` = self else { return }
-                self.notAvailableLabel.isHidden = true
+                self.posterStatusLabel.isHidden = true
             }
         } else {
-            posterImageView.image = nil
-            notAvailableLabel.isHidden = false
+            posterStatusLabel.text = "N/A"
         }
         
         titleLabel.text = video.title
