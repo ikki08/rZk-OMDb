@@ -32,7 +32,8 @@ class VideoCell: UITableViewCell {
                 self.notAvailableLabel.isHidden = true
             }
         } else {
-            self.notAvailableLabel.isHidden = false
+            posterImageView.image = nil
+            notAvailableLabel.isHidden = false
         }
         
         titleLabel.text = video.title

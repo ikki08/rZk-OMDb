@@ -10,6 +10,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="rZk_OMDb" customModuleProvider="target">
             <connections>
                 <outlet property="dataTableView" destination="eXB-mN-CSf" id="LpG-Fv-n9a"/>
+                <outlet property="errorMessageLabel" destination="H3w-tt-c7Y" id="ObC-Hc-j8a"/>
+                <outlet property="errorView" destination="o1Q-I5-cKQ" id="0w7-21-M9W"/>
                 <outlet property="videoSearchBar" destination="q9f-pz-xM4" id="GiD-pv-68c"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -30,10 +32,48 @@
                     <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1Q-I5-cKQ">
+                    <rect key="frame" x="30" y="228.5" width="260" height="111"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3w-tt-c7Y">
+                            <rect key="frame" x="16" y="20" width="228" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOH-TJ-hpL">
+                            <rect key="frame" x="80" y="61" width="100" height="30"/>
+                            <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="9IY-Eh-b51"/>
+                                <constraint firstAttribute="height" constant="30" id="URY-m9-XsS"/>
+                            </constraints>
+                            <state key="normal" title="Retry">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="retryButtonTapped:" destination="-1" eventType="touchUpInside" id="fip-fV-lx7"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="H3w-tt-c7Y" firstAttribute="leading" secondItem="o1Q-I5-cKQ" secondAttribute="leading" constant="16" id="0BT-Wy-jnU"/>
+                        <constraint firstAttribute="width" constant="260" id="1OG-eP-QjZ"/>
+                        <constraint firstAttribute="trailing" secondItem="H3w-tt-c7Y" secondAttribute="trailing" constant="16" id="9m9-u4-QyZ"/>
+                        <constraint firstItem="H3w-tt-c7Y" firstAttribute="centerX" secondItem="o1Q-I5-cKQ" secondAttribute="centerX" id="aiM-dJ-xfm"/>
+                        <constraint firstItem="eOH-TJ-hpL" firstAttribute="centerX" secondItem="o1Q-I5-cKQ" secondAttribute="centerX" id="jvK-OQ-S6C"/>
+                        <constraint firstItem="H3w-tt-c7Y" firstAttribute="top" secondItem="o1Q-I5-cKQ" secondAttribute="top" constant="20" id="nVQ-sx-8Ht"/>
+                        <constraint firstItem="eOH-TJ-hpL" firstAttribute="top" secondItem="H3w-tt-c7Y" secondAttribute="bottom" constant="20" id="ptp-Fe-6vG"/>
+                        <constraint firstAttribute="bottom" secondItem="eOH-TJ-hpL" secondAttribute="bottom" constant="20" id="ulT-M0-lMi"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="o1Q-I5-cKQ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="2zJ-dp-KDg"/>
                 <constraint firstItem="q9f-pz-xM4" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="6lz-yG-8Jz"/>
+                <constraint firstItem="o1Q-I5-cKQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Abm-01-d3n"/>
                 <constraint firstItem="eXB-mN-CSf" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="eJH-81-rp1"/>
                 <constraint firstItem="q9f-pz-xM4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="fJ4-Qh-9V5"/>
                 <constraint firstItem="q9f-pz-xM4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="kmq-qO-Hzj"/>

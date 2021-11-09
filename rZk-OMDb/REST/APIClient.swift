@@ -11,9 +11,10 @@ import Alamofire
 
 struct StatusCode {
     static let accepted: Int = 202
-    static let errorGeneral: Int = 4000
+    static let errorGeneral: Int = 464
     static let unauthorized: Int = 401
     static let errorConflict: Int = 409
+    static let errorTooManyResult: Int = 555
 }
 
 class APIClient: NSObject {
@@ -34,6 +35,16 @@ class APIClient: NSObject {
                 failure(error)
                 break
             }
+        }
+    }
+    
+    func cancelAllRequest(completion: @escaping () -> Void) {
+        Alamofire.SessionManager.default.session.getAllTasks() { tasks in
+            for task in tasks {
+                task.cancel()
+            }
+            
+            completion()
         }
     }
 }

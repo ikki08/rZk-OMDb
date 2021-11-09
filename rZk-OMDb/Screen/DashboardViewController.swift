@@ -11,6 +11,8 @@ import UIKit
 class DashboardViewController: UIViewController {
     @IBOutlet weak var dataTableView: UITableView!
     @IBOutlet weak var videoSearchBar: UISearchBar!
+    @IBOutlet weak var errorView: UIView!
+    @IBOutlet weak var errorMessageLabel: UILabel!
     
     private var viewModel: DashboardViewModel?
     
@@ -35,6 +37,14 @@ class DashboardViewController: UIViewController {
         initialLoad()
     }
     
+    // MARK: Action
+    
+    @IBAction func retryButtonTapped(_ sender: Any) {
+        if let searchTerm = videoSearchBar.text {
+            search(with: searchTerm)
+        }
+    }
+    
     // MARK: Private
     
     private func setupTableView() {
@@ -47,11 +57,13 @@ class DashboardViewController: UIViewController {
     }
     
     private func initialLoad() {
-        //showLoading()
-        viewModel?.searchVideo(term: "test")
+        search(with: "test")
     }
     
     private func search(with term: String) {
+        errorView.isHidden = true
+        dataTableView.isHidden = false
+
         viewModel?.searchVideo(term: term)
     }
 }
@@ -63,6 +75,7 @@ extension DashboardViewController: UISearchBarDelegate {
         } else {
             viewModel?.clearVideoList()
             dataTableView.reloadData()
+            search(with: searchText)
         }
     }
 }
@@ -95,12 +108,20 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension DashboardViewController: DashboardVMDelegate {
     func searchDidSucceed() {
-        dataTableView.reloadData()
-        dismissLoading()
+        DispatchQueue.main.async { [weak self] in
+            guard let `self` = self else { return }
+            
+            self.dataTableView.reloadData()
+        }
     }
     
-    func searchDidFail() {
-        dismissLoading()
-        showAlert()
+    func searchDidFail(with message: String) {
+        DispatchQueue.main.async { [weak self] in
+            guard let `self` = self else { return }
+            
+            self.errorMessageLabel.text = message
+            self.errorView.isHidden = false
+            self.dataTableView.isHidden = true
+        }
     }
 }

@@ -15,37 +15,58 @@ protocol SearchServiceProtocol {
 
 class SearchService: SearchServiceProtocol {
     func searchVideo(term: String, cache: NSCache<NSString, AnyObject>, success: @escaping ([Video]) -> Void, failure: @escaping (Error) -> Void) {
-         let lowercasedTerm = term.lowercased()
-
-        if let cachedResponse = cache.object(forKey: lowercasedTerm as NSString) {
-            let jsonResponse = JSON(cachedResponse)
-            let videoList = self.parseResponse(jsonResponse)
+        let lowercasedTerm = term.lowercased()
+        let apiClient = APIClient()
+        apiClient.cancelAllRequest() { [weak self] in
+            guard let `self` = self else { return }
             
-            success(videoList)
-        } else {
-            let searchRequest = SearchRequest(term: lowercasedTerm)
-            
-            let apiClient = APIClient()
-            apiClient.execute(request: searchRequest,
-                              success: { [weak self] response in
-                                guard let `self` = self else { return }
-                                
-                                let jsonResponse = JSON(response)
-                                cache.setObject(response as AnyObject, forKey: lowercasedTerm as NSString)
-                                
-                                let videoList = self.parseResponse(jsonResponse)
-                                
-                                success(videoList)
-            },
-                              failure: { error in
-                                failure(error)
-            })
+            if let cachedResponse = cache.object(forKey: lowercasedTerm as NSString) {
+                let jsonResponse = JSON(cachedResponse)
+                let result = self.handleResponse(jsonResponse)
+                if let videoList = result.0 {
+                    success(videoList)
+                } else if let error = result.1 {
+                    failure(error)
+                }
+            } else {
+                let searchRequest = SearchRequest(term: lowercasedTerm)
+                apiClient.execute(request: searchRequest,
+                                  success: { [weak self] response in
+                                    guard let `self` = self else { return }
+                                    
+                                    let jsonResponse = JSON(response)
+                                    cache.setObject(response as AnyObject, forKey: lowercasedTerm as NSString)
+                                    let result = self.handleResponse(jsonResponse)
+                                    if let videoList = result.0 {
+                                        success(videoList)
+                                    } else if let error = result.1 {
+                                        failure(error)
+                                    }
+                },
+                                  failure: { error in
+                                    failure(error)
+                })
+            }
         }
     }
     
-    private func parseResponse(_ response: JSON) -> Array<Video> {
+    private func handleResponse(_ response: JSON) -> (Array<Video>?, Error?) {
+        if let reqResponse = response["Response"].string,
+            reqResponse == "True" {
+            let videoList = parseVideoDataJSON(response)
+            return (videoList, nil)
+        } else {
+            let errorMessage = response["Error"].string!
+            let error = NSError(domain: "",
+                                code: StatusCode.errorTooManyResult,
+                                userInfo: ["description": errorMessage])
+            return (nil, error)
+        }
+    }
+    
+    private func parseVideoDataJSON(_ videoDataJSON: JSON) -> Array<Video> {
         var videoList = Array<Video>()
-        let jsonArray = response["Search"].array!
+        let jsonArray = videoDataJSON["Search"].array!
         for jsonData in jsonArray {
             let video = Video(json: jsonData)
             videoList.append(video)

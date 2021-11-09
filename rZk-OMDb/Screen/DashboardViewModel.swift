@@ -10,7 +10,7 @@ import UIKit
 
 protocol DashboardVMDelegate: NSObjectProtocol {
     func searchDidSucceed()
-    func searchDidFail()
+    func searchDidFail(with message: String)
 }
 
 class DashboardViewModel {
@@ -26,16 +26,22 @@ class DashboardViewModel {
     }
     
     func searchVideo(term: String) {
+        self.videoList.removeAll()
         searchService.searchVideo(term: term,
                                   cache: responseCache,
                                   success: { [weak self] videos in
             guard let `self` = self else { return }
-            self.videoList.removeAll()
+            
             self.videoList.append(contentsOf: videos)
             self.delegate?.searchDidSucceed()
         }, failure: { [weak self] error in
             guard let `self` = self else { return }
-            self.delegate?.searchDidFail()
+            if let anError = error as NSError?,
+                let message = anError.userInfo["description"] as! String? {
+                self.delegate?.searchDidFail(with: message)
+            } else {
+                self.delegate?.searchDidFail(with: "Something went wrong!")
+            }
         })
     }
     
