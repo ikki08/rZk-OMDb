@@ -41,6 +41,7 @@ class DashboardViewController: UIViewController {
         
         dataTableView.tableFooterView = UIView()
         dataTableView.dataSource = self
+        dataTableView.delegate = self
     }
     
     private func initialLoad() {
@@ -49,7 +50,8 @@ class DashboardViewController: UIViewController {
     }
 }
 
-extension DashboardViewController: UITableViewDataSource {
+extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
+    // MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.videoList.count ?? 0
     }
@@ -66,6 +68,11 @@ extension DashboardViewController: UITableViewDataSource {
         }
         
         return cell
+    }
+    
+    // MARK: UITableViewDelegate
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }
 
