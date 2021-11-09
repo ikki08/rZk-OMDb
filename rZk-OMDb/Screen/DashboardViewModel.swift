@@ -19,6 +19,7 @@ class DashboardViewModel {
     private(set) var videoList: Array<Video>
     let imageCache = NSCache<NSString, UIImage>()
     let responseCache = NSCache<NSString, AnyObject>()
+    var isRequestingToServer = false
     
     init(service: SearchServiceProtocol) {
         self.searchService = service
@@ -36,6 +37,7 @@ class DashboardViewModel {
             self.delegate?.searchDidSucceed()
         }, failure: { [weak self] error in
             guard let `self` = self else { return }
+            
             if let anError = error as NSError?,
                 let message = anError.userInfo["description"] as! String? {
                 self.delegate?.searchDidFail(with: message)

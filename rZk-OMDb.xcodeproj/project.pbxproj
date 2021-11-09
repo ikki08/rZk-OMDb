@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		185295A0EEB88F857A4B923C /* Pods_rZk_OMDbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CF2A5EF1845FE8BA3C78134 /* Pods_rZk_OMDbTests.framework */; };
 		34E895BC273A236E00FC55C5 /* UIImageView+SetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E895BB273A236E00FC55C5 /* UIImageView+SetImage.swift */; };
+		34E895BE273AC23300FC55C5 /* UIView+ShimmeringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E895BD273AC23300FC55C5 /* UIView+ShimmeringAnimation.swift */; };
+		34E895C1273ACDD700FC55C5 /* ShimmerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E895BF273ACDD700FC55C5 /* ShimmerCell.swift */; };
+		34E895C2273ACDD700FC55C5 /* ShimmerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34E895C0273ACDD700FC55C5 /* ShimmerCell.xib */; };
 		34F23AC327394E2000C45628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AC227394E2000C45628 /* AppDelegate.swift */; };
 		34F23AC527394E2000C45628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AC427394E2000C45628 /* SceneDelegate.swift */; };
 		34F23ACC27394E2200C45628 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F23ACB27394E2200C45628 /* Assets.xcassets */; };
@@ -23,7 +26,6 @@
 		34F23AF32739714000C45628 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AF22739714000C45628 /* SearchRequest.swift */; };
 		34F23AF627397FDF00C45628 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AF527397FDF00C45628 /* Video.swift */; };
 		34F23AF9273983D100C45628 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AF8273983D100C45628 /* SearchService.swift */; };
-		34F23AFC27398A3800C45628 /* UIViewController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AFB27398A3800C45628 /* UIViewController+Utilities.swift */; };
 		34F23AFF273992C200C45628 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AFD273992C200C45628 /* VideoCell.swift */; };
 		34F23B00273992C200C45628 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F23AFE273992C200C45628 /* VideoCell.xib */; };
 		51348A63EB2A85439DF8C6FA /* Pods_rZk_OMDb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA897DF719C65E1B91A45D7 /* Pods_rZk_OMDb.framework */; };
@@ -43,6 +45,9 @@
 		052C6BB17F268A6A25940818 /* Pods-rZk-OMDb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rZk-OMDb.release.xcconfig"; path = "Target Support Files/Pods-rZk-OMDb/Pods-rZk-OMDb.release.xcconfig"; sourceTree = "<group>"; };
 		1FA897DF719C65E1B91A45D7 /* Pods_rZk_OMDb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rZk_OMDb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E895BB273A236E00FC55C5 /* UIImageView+SetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+SetImage.swift"; sourceTree = "<group>"; };
+		34E895BD273AC23300FC55C5 /* UIView+ShimmeringAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ShimmeringAnimation.swift"; sourceTree = "<group>"; };
+		34E895BF273ACDD700FC55C5 /* ShimmerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerCell.swift; sourceTree = "<group>"; };
+		34E895C0273ACDD700FC55C5 /* ShimmerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShimmerCell.xib; sourceTree = "<group>"; };
 		34F23ABF27394E2000C45628 /* rZk-OMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rZk-OMDb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F23AC227394E2000C45628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34F23AC427394E2000C45628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +66,6 @@
 		34F23AF22739714000C45628 /* SearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
 		34F23AF527397FDF00C45628 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		34F23AF8273983D100C45628 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
-		34F23AFB27398A3800C45628 /* UIViewController+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utilities.swift"; sourceTree = "<group>"; };
 		34F23AFD273992C200C45628 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		34F23AFE273992C200C45628 /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
 		5D60C884B0CA843BC2654A92 /* Pods-rZk-OMDb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rZk-OMDb.debug.xcconfig"; path = "Target Support Files/Pods-rZk-OMDb/Pods-rZk-OMDb.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 				34F23AE82739548B00C45628 /* DashboardViewController.xib */,
 				34F23AFD273992C200C45628 /* VideoCell.swift */,
 				34F23AFE273992C200C45628 /* VideoCell.xib */,
+				34E895BF273ACDD700FC55C5 /* ShimmerCell.swift */,
+				34E895C0273ACDD700FC55C5 /* ShimmerCell.xib */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -187,8 +193,8 @@
 		34F23AFA273989FF00C45628 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				34F23AFB27398A3800C45628 /* UIViewController+Utilities.swift */,
 				34E895BB273A236E00FC55C5 /* UIImageView+SetImage.swift */,
+				34E895BD273AC23300FC55C5 /* UIView+ShimmeringAnimation.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -290,6 +296,7 @@
 			files = (
 				34F23ACF27394E2200C45628 /* LaunchScreen.storyboard in Resources */,
 				34F23B00273992C200C45628 /* VideoCell.xib in Resources */,
+				34E895C2273ACDD700FC55C5 /* ShimmerCell.xib in Resources */,
 				34F23ACC27394E2200C45628 /* Assets.xcassets in Resources */,
 				34F23AEA2739548B00C45628 /* DashboardViewController.xib in Resources */,
 			);
@@ -374,18 +381,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F23AE52739537F00C45628 /* AppDIContainer.swift in Sources */,
-				34F23AFC27398A3800C45628 /* UIViewController+Utilities.swift in Sources */,
 				34F23AF1273965A800C45628 /* APIRequest.swift in Sources */,
 				34F23AE92739548B00C45628 /* DashboardViewController.swift in Sources */,
 				34F23AEC2739575100C45628 /* DashboardViewModel.swift in Sources */,
 				34F23AFF273992C200C45628 /* VideoCell.swift in Sources */,
 				34E895BC273A236E00FC55C5 /* UIImageView+SetImage.swift in Sources */,
 				34F23AF627397FDF00C45628 /* Video.swift in Sources */,
+				34E895BE273AC23300FC55C5 /* UIView+ShimmeringAnimation.swift in Sources */,
 				34F23AC327394E2000C45628 /* AppDelegate.swift in Sources */,
 				34F23AF32739714000C45628 /* SearchRequest.swift in Sources */,
 				34F23AF9273983D100C45628 /* SearchService.swift in Sources */,
 				34F23AC527394E2000C45628 /* SceneDelegate.swift in Sources */,
 				34F23AEF2739658300C45628 /* APIClient.swift in Sources */,
+				34E895C1273ACDD700FC55C5 /* ShimmerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -90,6 +90,8 @@ class DashboardViewController: UIViewController {
     private func setupTableView() {
         dataTableView.register(UINib(nibName: "VideoCell", bundle: nil),
                                forCellReuseIdentifier: "videoCell")
+        dataTableView.register(UINib(nibName: "ShimmerCell", bundle: nil),
+                               forCellReuseIdentifier: "shimmerCell")
         
         dataTableView.tableFooterView = UIView()
         dataTableView.dataSource = self
@@ -103,8 +105,10 @@ class DashboardViewController: UIViewController {
     private func search(with term: String) {
         errorView.isHidden = true
         dataTableView.isHidden = false
-
+        viewModel?.isRequestingToServer = true
         viewModel?.searchVideo(term: term)
+        dataTableView.reloadData()
+        dataTableView.isScrollEnabled = false
     }
 }
 
@@ -123,18 +127,30 @@ extension DashboardViewController: UISearchBarDelegate {
 extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.videoList.count ?? 0
+        guard let `viewModel` = viewModel else { return 0 }
+        if viewModel.isRequestingToServer && viewModel.videoList.count == 0 {
+            return 10
+        } else {
+            return viewModel.videoList.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "videoCell",
-                                                 for: indexPath) as! VideoCell
+        guard let `viewModel` = viewModel else { return UITableViewCell() }
         
-        guard let `viewModel` = viewModel else { return cell }
-        
-        if viewModel.videoList.count > 0 {
+        let cell: UITableViewCell
+        if viewModel.isRequestingToServer {
+            let shimmerCell = tableView.dequeueReusableCell(withIdentifier: "shimmerCell",
+                                                            for: indexPath) as! ShimmerCell
+            cell = shimmerCell
+        } else if viewModel.videoList.count > 0 {
             let videoData = viewModel.videoList[indexPath.row]
-            cell.setup(with: videoData, cache: viewModel.imageCache)
+            let videoDataCell = tableView.dequeueReusableCell(withIdentifier: "videoCell",
+                                                              for: indexPath) as! VideoCell
+            videoDataCell.setup(with: videoData, cache: viewModel.imageCache)
+            cell = videoDataCell
+        } else {
+            cell = UITableViewCell()
         }
         
         return cell
@@ -151,6 +167,8 @@ extension DashboardViewController: DashboardVMDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let `self` = self else { return }
             
+            self.viewModel?.isRequestingToServer = false
+            self.dataTableView.isScrollEnabled = true
             self.dataTableView.reloadData()
         }
     }
@@ -159,9 +177,11 @@ extension DashboardViewController: DashboardVMDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let `self` = self else { return }
             
+            self.viewModel?.isRequestingToServer = false
             self.errorMessageLabel.text = message
             self.errorView.isHidden = false
             self.dataTableView.isHidden = true
+            self.dataTableView.isScrollEnabled = true
         }
     }
 }

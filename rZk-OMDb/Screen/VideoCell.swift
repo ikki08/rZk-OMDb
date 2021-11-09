@@ -26,6 +26,10 @@ class VideoCell: UITableViewCell {
     }
     
     func setup(with video: Video, cache: NSCache<NSString, UIImage>) {
+        posterImageView.backgroundColor = UIColor.lightGray
+        titleLabel.backgroundColor = UIColor.clear
+        yearLabel.backgroundColor = UIColor.clear
+        
         if video.posterUrl != "" {
             posterImageView.setImage(urlString: video.posterUrl, cache: cache) { [weak self] in
                 guard let `self` = self else { return }
