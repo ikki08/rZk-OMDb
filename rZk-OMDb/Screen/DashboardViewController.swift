@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import Reachability
 
 class DashboardViewController: UIViewController {
     @IBOutlet weak var dataTableView: UITableView!
     @IBOutlet weak var videoSearchBar: UISearchBar!
     @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var errorMessageLabel: UILabel!
+    @IBOutlet weak var noInternetLabel: UIView!
     
     private var viewModel: DashboardViewModel?
+    private var reachability: Reachability?
     
     // MARK: ViewController Lifecycle
     
@@ -23,6 +26,11 @@ class DashboardViewController: UIViewController {
         
         self.viewModel = viewModel
         self.viewModel?.delegate = self
+        do {
+            try self.reachability = Reachability()
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -32,8 +40,10 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        noInternetLabel.isHidden = true
         videoSearchBar.delegate = self
         setupTableView()
+        setupReachabilityObserver()
         initialLoad()
     }
     
@@ -45,7 +55,37 @@ class DashboardViewController: UIViewController {
         }
     }
     
+    @objc func reachabilityChanged(notification: Notification)  {
+        let aReachability = notification.object as! Reachability
+        if aReachability.connection != .unavailable {
+            DispatchQueue.main.async { [weak self] in
+                guard let `self` = self else { return }
+                
+                self.noInternetLabel.isHidden = true
+            }
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                guard let `self` = self else { return }
+                
+                self.noInternetLabel.isHidden = false
+            }
+        }
+    }
+    
     // MARK: Private
+        
+    private func setupReachabilityObserver() {
+        guard let `reachability` = reachability else { return }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged),
+                                               name: .reachabilityChanged, object: reachability)
+
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Could not strat notifier")
+        }
+    }
     
     private func setupTableView() {
         dataTableView.register(UINib(nibName: "VideoCell", bundle: nil),
