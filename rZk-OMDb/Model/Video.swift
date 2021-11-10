@@ -34,4 +34,12 @@ class Video: NSObject {
             self.posterUrl = ""
         }
     }
+    
+    init(imdbId: String, title: String, year: String, type: VideoType, posterURL: String) {
+        self.imdbId = imdbId
+        self.title = title
+        self.year = year
+        self.type = type
+        self.posterUrl = posterURL
+    }
 }

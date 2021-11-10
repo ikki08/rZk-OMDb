@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		185295A0EEB88F857A4B923C /* Pods_rZk_OMDbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CF2A5EF1845FE8BA3C78134 /* Pods_rZk_OMDbTests.framework */; };
+		34C94077273BF10700A2EAE4 /* DashboardVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C94076273BF10700A2EAE4 /* DashboardVMTests.swift */; };
+		34C94078273BF2BF00A2EAE4 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AEB2739575100C45628 /* DashboardViewModel.swift */; };
+		34C94079273BF2CC00A2EAE4 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AF8273983D100C45628 /* SearchService.swift */; };
+		34C9407A273BF2D200A2EAE4 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AF527397FDF00C45628 /* Video.swift */; };
+		34C9407B273C069E00A2EAE4 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AEE2739658300C45628 /* APIClient.swift */; };
+		34C9407C273C106D00A2EAE4 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AF0273965A800C45628 /* APIRequest.swift */; };
+		34C9407D273C108100A2EAE4 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AF22739714000C45628 /* SearchRequest.swift */; };
 		34E895BC273A236E00FC55C5 /* UIImageView+SetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E895BB273A236E00FC55C5 /* UIImageView+SetImage.swift */; };
 		34E895BE273AC23300FC55C5 /* UIView+ShimmeringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E895BD273AC23300FC55C5 /* UIView+ShimmeringAnimation.swift */; };
 		34E895C1273ACDD700FC55C5 /* ShimmerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E895BF273ACDD700FC55C5 /* ShimmerCell.swift */; };
@@ -16,7 +23,6 @@
 		34F23AC527394E2000C45628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AC427394E2000C45628 /* SceneDelegate.swift */; };
 		34F23ACC27394E2200C45628 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F23ACB27394E2200C45628 /* Assets.xcassets */; };
 		34F23ACF27394E2200C45628 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34F23ACD27394E2200C45628 /* LaunchScreen.storyboard */; };
-		34F23ADA27394E2200C45628 /* rZk_OMDbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AD927394E2200C45628 /* rZk_OMDbTests.swift */; };
 		34F23AE52739537F00C45628 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AE42739537F00C45628 /* AppDIContainer.swift */; };
 		34F23AE92739548B00C45628 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F23AE72739548B00C45628 /* DashboardViewController.swift */; };
 		34F23AEA2739548B00C45628 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F23AE82739548B00C45628 /* DashboardViewController.xib */; };
@@ -44,6 +50,7 @@
 /* Begin PBXFileReference section */
 		052C6BB17F268A6A25940818 /* Pods-rZk-OMDb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rZk-OMDb.release.xcconfig"; path = "Target Support Files/Pods-rZk-OMDb/Pods-rZk-OMDb.release.xcconfig"; sourceTree = "<group>"; };
 		1FA897DF719C65E1B91A45D7 /* Pods_rZk_OMDb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rZk_OMDb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34C94076273BF10700A2EAE4 /* DashboardVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVMTests.swift; sourceTree = "<group>"; };
 		34E895BB273A236E00FC55C5 /* UIImageView+SetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+SetImage.swift"; sourceTree = "<group>"; };
 		34E895BD273AC23300FC55C5 /* UIView+ShimmeringAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ShimmeringAnimation.swift"; sourceTree = "<group>"; };
 		34E895BF273ACDD700FC55C5 /* ShimmerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerCell.swift; sourceTree = "<group>"; };
@@ -55,7 +62,6 @@
 		34F23ACE27394E2200C45628 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34F23AD027394E2200C45628 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34F23AD527394E2200C45628 /* rZk-OMDbTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "rZk-OMDbTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		34F23AD927394E2200C45628 /* rZk_OMDbTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rZk_OMDbTests.swift; sourceTree = "<group>"; };
 		34F23ADB27394E2200C45628 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34F23AE42739537F00C45628 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		34F23AE72739548B00C45628 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -144,7 +150,7 @@
 		34F23AD827394E2200C45628 /* rZk-OMDbTests */ = {
 			isa = PBXGroup;
 			children = (
-				34F23AD927394E2200C45628 /* rZk_OMDbTests.swift */,
+				34C94076273BF10700A2EAE4 /* DashboardVMTests.swift */,
 				34F23ADB27394E2200C45628 /* Info.plist */,
 			);
 			path = "rZk-OMDbTests";
@@ -401,7 +407,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34F23ADA27394E2200C45628 /* rZk_OMDbTests.swift in Sources */,
+				34C94079273BF2CC00A2EAE4 /* SearchService.swift in Sources */,
+				34C9407A273BF2D200A2EAE4 /* Video.swift in Sources */,
+				34C94077273BF10700A2EAE4 /* DashboardVMTests.swift in Sources */,
+				34C9407B273C069E00A2EAE4 /* APIClient.swift in Sources */,
+				34C9407D273C108100A2EAE4 /* SearchRequest.swift in Sources */,
+				34C9407C273C106D00A2EAE4 /* APIRequest.swift in Sources */,
+				34C94078273BF2BF00A2EAE4 /* DashboardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
