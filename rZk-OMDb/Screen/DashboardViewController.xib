@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="rZk_OMDb" customModuleProvider="target">
             <connections>
+                <outlet property="bottomConstraint" destination="eJH-81-rp1" id="GhD-3X-TdK"/>
                 <outlet property="dataTableView" destination="eXB-mN-CSf" id="LpG-Fv-n9a"/>
                 <outlet property="errorMessageLabel" destination="H3w-tt-c7Y" id="ObC-Hc-j8a"/>
                 <outlet property="errorView" destination="o1Q-I5-cKQ" id="0w7-21-M9W"/>
@@ -27,7 +28,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="uEZ-3p-ZwU"/>
                     </constraints>
-                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                 </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eXB-mN-CSf">
                     <rect key="frame" x="0.0" y="44" width="320" height="524"/>

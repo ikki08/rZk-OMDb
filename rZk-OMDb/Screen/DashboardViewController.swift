@@ -16,6 +16,8 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var errorMessageLabel: UILabel!
     @IBOutlet weak var noInternetLabel: UIView!
     
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    
     private var viewModel: DashboardViewModel?
     private var reachability: Reachability?
     
@@ -44,6 +46,7 @@ class DashboardViewController: UIViewController {
         videoSearchBar.delegate = self
         setupTableView()
         setupReachabilityObserver()
+        setupKeyboardObserver()
         initialLoad()
     }
     
@@ -87,6 +90,11 @@ class DashboardViewController: UIViewController {
         }
     }
     
+    private func setupKeyboardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     private func setupTableView() {
         dataTableView.register(UINib(nibName: "VideoCell", bundle: nil),
                                forCellReuseIdentifier: "videoCell")
@@ -110,6 +118,31 @@ class DashboardViewController: UIViewController {
         dataTableView.reloadData()
         dataTableView.isScrollEnabled = false
     }
+    
+    // MARK: Observer
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+            let keyboardFrame: NSValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+            return
+        }
+        
+        let keyboardRect = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRect.height        
+        self.bottomConstraint.constant = -keyboardHeight
+        UIView.animate(withDuration: 0.1) { [weak self] in
+            guard let `self` = self else { return }
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        bottomConstraint.constant = 0
+        UIView.animate(withDuration: 0.1) { [weak self] in
+            guard let `self` = self else { return }
+            self.view.layoutIfNeeded()
+        }
+    }
 }
 
 extension DashboardViewController: UISearchBarDelegate {
@@ -121,6 +154,10 @@ extension DashboardViewController: UISearchBarDelegate {
             dataTableView.reloadData()
             search(with: searchText)
         }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
 }
 
