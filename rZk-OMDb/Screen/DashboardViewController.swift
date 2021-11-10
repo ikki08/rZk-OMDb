@@ -58,23 +58,6 @@ class DashboardViewController: UIViewController {
         }
     }
     
-    @objc func reachabilityChanged(notification: Notification)  {
-        let aReachability = notification.object as! Reachability
-        if aReachability.connection != .unavailable {
-            DispatchQueue.main.async { [weak self] in
-                guard let `self` = self else { return }
-                
-                self.noInternetLabel.isHidden = true
-            }
-        } else {
-            DispatchQueue.main.async { [weak self] in
-                guard let `self` = self else { return }
-                
-                self.noInternetLabel.isHidden = false
-            }
-        }
-    }
-    
     // MARK: Private
         
     private func setupReachabilityObserver() {
@@ -110,16 +93,33 @@ class DashboardViewController: UIViewController {
         search(with: "test")
     }
     
-    private func search(with term: String) {
+    private func search(with term: String, isForceFromRemote: Bool = false) {
         errorView.isHidden = true
         dataTableView.isHidden = false
         viewModel?.isRequestingToServer = true
-        viewModel?.searchVideo(term: term)
+        viewModel?.searchVideo(term: term, forceFromRemote: isForceFromRemote)
         dataTableView.reloadData()
         dataTableView.isScrollEnabled = false
     }
     
     // MARK: Observer
+    
+    @objc func reachabilityChanged(notification: Notification)  {
+        let aReachability = notification.object as! Reachability
+        if aReachability.connection != .unavailable {
+            DispatchQueue.main.async { [weak self] in
+                guard let `self` = self else { return }
+                
+                self.noInternetLabel.isHidden = true
+            }
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                guard let `self` = self else { return }
+                
+                self.noInternetLabel.isHidden = false
+            }
+        }
+    }
     
     @objc func keyboardWillShow(_ notification: Notification) {
         guard let userInfo = notification.userInfo,
@@ -202,11 +202,16 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
 extension DashboardViewController: DashboardVMDelegate {
     func searchDidSucceed() {
         DispatchQueue.main.async { [weak self] in
-            guard let `self` = self else { return }
+            guard let `self` = self, let `viewModel` = self.viewModel else { return }
             
-            self.viewModel?.isRequestingToServer = false
+            viewModel.isRequestingToServer = false
             self.dataTableView.isScrollEnabled = true
             self.dataTableView.reloadData()
+            
+            if self.reachability?.connection != .unavailable,
+                viewModel.shouldReqAgainFromRemote {
+                self.search(with: "test", isForceFromRemote: true)
+            }
         }
     }
     

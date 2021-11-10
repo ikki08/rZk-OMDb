@@ -20,24 +20,37 @@ class DashboardViewModel {
     let imageCache = NSCache<NSString, UIImage>()
     let responseCache = NSCache<NSString, AnyObject>()
     var isRequestingToServer = false
+    var isFirstAttemp = false
+    var shouldReqAgainFromRemote = false
     
-    init(service: SearchServiceProtocol) {
+    init(service: SearchServiceProtocol, isFirstAttemp: Bool) {
         self.searchService = service
         self.videoList = Array()
+        self.isFirstAttemp = isFirstAttemp
     }
     
-    func searchVideo(term: String) {
+    func searchVideo(term: String, forceFromRemote: Bool) {
         self.videoList.removeAll()
         searchService.searchVideo(term: term,
+                                  forceFromRemote: forceFromRemote,
                                   cache: responseCache,
-                                  success: { [weak self] videos in
+                                  success: { [weak self] videos, isFromCache in
             guard let `self` = self else { return }
             
+            if isFromCache, self.isFirstAttemp {
+                self.shouldReqAgainFromRemote = true
+            } else {
+                self.shouldReqAgainFromRemote = false
+            }
+            
+            self.isFirstAttemp = false
             self.videoList.append(contentsOf: videos)
             self.delegate?.searchDidSucceed()
         }, failure: { [weak self] error in
             guard let `self` = self else { return }
             
+            self.shouldReqAgainFromRemote = false
+            self.isFirstAttemp = false
             if let anError = error as NSError?,
                 let message = anError.userInfo["description"] as! String? {
                 self.delegate?.searchDidFail(with: message)

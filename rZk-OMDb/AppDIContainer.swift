@@ -11,7 +11,7 @@ import UIKit
 class AppDIContainer: NSObject {
     static func createDashBoardVC() -> UIViewController {
         let service = SearchService()
-        let viewModel = DashboardViewModel(service: service)
+        let viewModel = DashboardViewModel(service: service, isFirstAttemp: true)
         let dashboardVC = DashboardViewController(viewModel: viewModel)
         
         return dashboardVC

@@ -10,21 +10,21 @@ import UIKit
 import SwiftyJSON
 
 protocol SearchServiceProtocol {
-    func searchVideo(term: String, cache: NSCache<NSString, AnyObject>, success: @escaping ([Video]) -> Void, failure: @escaping (Error) -> Void)
+    func searchVideo(term: String, forceFromRemote: Bool, cache: NSCache<NSString, AnyObject>, success: @escaping ([Video], Bool) -> Void, failure: @escaping (Error) -> Void)
 }
 
 class SearchService: SearchServiceProtocol {
-    func searchVideo(term: String, cache: NSCache<NSString, AnyObject>, success: @escaping ([Video]) -> Void, failure: @escaping (Error) -> Void) {
+    func searchVideo(term: String, forceFromRemote: Bool = false, cache: NSCache<NSString, AnyObject>, success: @escaping ([Video], Bool) -> Void, failure: @escaping (Error) -> Void) {
         let lowercasedTerm = term.lowercased()
         let apiClient = APIClient()
         apiClient.cancelAllRequest() { [weak self] in
             guard let `self` = self else { return }
             
-            if let cachedResponse = cache.object(forKey: lowercasedTerm as NSString) {
+            if !forceFromRemote, let cachedResponse = cache.object(forKey: lowercasedTerm as NSString) {
                 let jsonResponse = JSON(cachedResponse)
                 let result = self.handleResponse(jsonResponse)
                 if let videoList = result.0 {
-                    success(videoList)
+                    success(videoList, true)
                 } else if let error = result.1 {
                     failure(error)
                 }
@@ -38,7 +38,7 @@ class SearchService: SearchServiceProtocol {
                                     cache.setObject(response as AnyObject, forKey: lowercasedTerm as NSString)
                                     let result = self.handleResponse(jsonResponse)
                                     if let videoList = result.0 {
-                                        success(videoList)
+                                        success(videoList, false)
                                     } else if let error = result.1 {
                                         failure(error)
                                     }
